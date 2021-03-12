@@ -37,19 +37,18 @@ server.listen(port, function(){
 });
  */
 
-const express = require('express')
-const WebSocket = require('ws')
-const app = express()
+const express = require("express");
+const WebSocket = require("ws");
+const app = express();
 
-app.get('/', (req, res) => {
-    const url = 'ws://34.87.63.155:8080/feedService/productPrice'
-const connection = new WebSocket(url)
-connection.onmessage = e => {
-    res.send(e.data)
-  }
-  
-})
+app.get("/", (req, res) => {
+  const url = "ws://34.87.63.155:8080/feedService/productPrice";
+  const connection = new WebSocket(url);
+  connection.onmessage = (e) => {
+    res.send(e.data);
+  };
+});
 
 app.listen(3000, () => {
-  console.log('Start server at port 3000.')
-})
+  console.log("Start server at port 3000.");
+});
